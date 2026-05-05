@@ -1,0 +1,66 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © jadenmachado1234
+
+//@version=6
+strategy("ifvg-ny session strat", overlay=true)
+
+// user inputs
+TimeInput    = input.session('0930-1100', ' Session Time')
+SessionInput = input.string('America/New_York', 'Session')
+boxLength    = input.int(20, 'Box Length', step = 1)
+rr           = input.float(2, 'Risk/Reward', step = 0.1)
+// time setting
+inSession = not na(time(timeframe.period, TimeInput , SessionInput))
+
+// parameters
+bullFVG = low > high[2]
+bearFVG = high < low[2]
+
+// storage
+var float bullBottom = na
+var float bullTop    = na
+
+var float bearBottom = na
+var float bearTop    = na
+
+if bullFVG
+    bullBottom := high[2]
+    bullTop    := low
+
+if bearFVG
+    bearBottom := high
+    bearTop    := low[2]
+
+// drawing
+
+if bullFVG and inSession
+    box.new(bar_index, bullTop, bar_index + boxLength, bullBottom, bgcolor = color.new(color.green, 95))
+
+if bearFVG and inSession
+    box.new(bar_index, bearTop, bar_index + boxLength, bearBottom, bgcolor = color.new(color.red, 95))
+
+// conditions
+longCondition  = not na(bearTop) and close >= bearTop and inSession
+shortCondition = not na(bullBottom) and close <= bullBottom and inSession
+
+// entry
+if longCondition
+    strategy.entry('LONG', strategy.long)
+
+if shortCondition
+    strategy.entry('SHORT', strategy.short)
+
+// exit
+var float longSL = na
+var float longTP = na
+var float shortSL = na
+var float shortTP = na
+
+longSL := bearBottom
+longTP := close + (close - bearBottom) * rr
+
+shortSL := bullTop
+shortTP := close - (bullTop - close) * rr
+
+strategy.exit('TP/SL', from_entry = 'LONG', limit = longTP, stop = longSL)
+strategy.exit('TP/SL', from_entry = 'SHORT', limit = shortTP, stop = shortSL)
