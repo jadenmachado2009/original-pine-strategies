@@ -48,3 +48,6 @@ The backtest period is too small (3 months), and the code does not factor in sli
 ## Overfitting Concerns
 The reason of positive trading returns could be due to a sample size chosen that is favourabe towards the strategy and not a reflection of market periods going further back.
 
+## Backtest Results - Image
+<img width="1076" height="848" alt="image" src="https://github.com/user-attachments/assets/72e37bb6-8b70-4070-aa10-198d89e65f1b" />
+
