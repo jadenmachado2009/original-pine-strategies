@@ -29,14 +29,14 @@ When a FVG is disrespected (iFVG) it signals a possible continuation in the corr
 ## Backtest Results
 | Win Rate | Profit Factor | Sharpe Ratio | Max Drawdown | No. Trades | Backtest Period |
 |----------|---------------|--------------|--------------|------------|-----------------|
-|   45.59   |    1.437      |    0.841    |    1.44     |   136    |                 |
+|   45.59   |    1.437      |    0.841    |    1.44     |   136    |  Feb 2 – May 5 2026 |
 
-![Backtest Results](backtest_screenshot.png)
+_backtest results pic at the end_
 
 ## Buy & Hold Comparison
 | Strategy Return | Buy & Hold Return |
 |-----------------|-------------------|
-|                 |                   |
+|     4.14%      |       3.66%     |
 
 ## What Worked
 
