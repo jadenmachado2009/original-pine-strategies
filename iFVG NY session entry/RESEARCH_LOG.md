@@ -37,6 +37,7 @@ _results image at the end - after evaluation_
 | Strategy Return | Buy & Hold Return |
 |-----------------|-------------------|
 |     4.14%      |       3.66%     |
+This indicates a positive 0.47% from the Buy & Hold return
 
 ## What Worked
 
