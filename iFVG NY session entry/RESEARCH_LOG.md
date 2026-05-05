@@ -44,7 +44,7 @@ Positive returns above the buy and hold return, low max drawdown percentage, hea
 ## Weaknesses
 Moderate Sharpe ratio
 ## Backtest Limitations
-
+The backtest period is too small (3 months), and the code does not factor in slippage and comissions which could slightly lower the returns.
 ## Overfitting Concerns
 
 ## Next Steps / Potential v2 Changes
