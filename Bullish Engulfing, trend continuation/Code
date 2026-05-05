@@ -1,0 +1,41 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © jadenmachado1234
+
+//@version=6
+strategy("Bullish Engulfing, trend continuation", overlay=true)
+
+// INPUTS
+inEma   = input.int(200, 'EMA Length', step = 5)
+inSma   = input.int(200, 'SMA Length', step = 5)
+atrLen  = input.int(14, 'ATR Length', step = 1)
+atrMult = input.float(1.7, 'ATR Multiplier', step = 0.1 )
+// INDICATORS
+ema     = ta.ema(close, inEma)
+sma     = ta.sma(close, inSma)
+bullEng = close > open[1] and open < close[1]
+bearEng = open > close[1] and close < open[1]
+atr     = ta.atr(atrLen)
+
+// CONDITIONS
+longCondition  = close > ema and close > sma and bullEng  
+shortCondition = close < ema and close < sma and bearEng
+
+// ENTRY
+if longCondition and strategy.position_size <= 0
+    strategy.entry('LONG', strategy.long)
+
+if shortCondition and strategy.position_size >= 0
+    strategy.entry('SHORT', strategy.short)
+
+// EXIT
+// long stop
+longSL = strategy.position_avg_price - (atr * atrMult)
+longTP = strategy.position_avg_price + (atr * atrMult )
+strategy.exit('long exit', 'LONG', limit = longTP, stop = longSL)
+// short stop
+shortSL = strategy.position_avg_price + (atr * atrMult)
+shortTP = strategy.position_avg_price - (atr * atrMult)
+strategy.exit('short exit', 'SHORT', limit = shortTP, stop = shortSL)
+
+plot(ema, color = color.navy)
+plot(sma, color = color.gray)
