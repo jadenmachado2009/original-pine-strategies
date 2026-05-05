@@ -31,7 +31,7 @@ When a FVG is disrespected (iFVG) it signals a possible continuation in the corr
 |----------|---------------|--------------|--------------|------------|-----------------|
 |   45.59   |    1.437      |    0.841    |    1.44     |   136    |  Feb 2 – May 5 2026 |
 
-_backtest results pic at the end_
+_results image at the end - after evaluation_
 
 ## Buy & Hold Comparison
 | Strategy Return | Buy & Hold Return |
