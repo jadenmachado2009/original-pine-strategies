@@ -7,7 +7,7 @@
 - **Backtest Period:** Feb 2 – May 5 2026
 
 ## Note on Originality
-FVG and iFVG concepts originate from SMC/ICT trading methodology and are publicly known. The specific entry combination  -- stop loss placement, entry logic, variable RR input -- represents original code and strategy structure development.
+FVG and iFVG concepts originate from SMC/ICT trading methodology and are publicly known. The specific entry combination  (stop loss placement, entry logic, variable RR input) represents original code and strategy structure development.
 
 ## Hypothesis
 When a FVG is disrespected (iFVG) it signals a possible continuation in the corresponding direction. NY_AM session due to high volatility during that time period.
@@ -29,7 +29,7 @@ When a FVG is disrespected (iFVG) it signals a possible continuation in the corr
 ## Backtest Results
 | Win Rate | Profit Factor | Sharpe Ratio | Max Drawdown | No. Trades | Backtest Period |
 |----------|---------------|--------------|--------------|------------|-----------------|
-|   45.59   |    1.437      |    0.841    |    1.44     |   136    |  Feb 2 – May 5 2026 |
+|   45.59%   |    1.437      |    0.841    |    1.44%     |   136    |  Feb 2 – May 5 2026 |
 
 _results image at the end - after evaluation_
 
@@ -40,9 +40,9 @@ _results image at the end - after evaluation_
 This indicates a positive 0.47% from the Buy & Hold return
 
 ## What Worked
-
-## Weaknesses / What Failed
-
+Positive returns above the buy and hold return, low max drawdown percentage, healthy profit factor.
+## Weaknesses
+Moderate Sharpe ratio
 ## Backtest Limitations
 
 ## Overfitting Concerns
