@@ -46,5 +46,5 @@ Moderate Sharpe ratio
 ## Backtest Limitations
 The backtest period is too small (3 months), and the code does not factor in slippage and comissions which could slightly lower the returns.
 ## Overfitting Concerns
+The reason of positive trading returns could be due to a sample size chosen that is favourabe towards the strategy and not a reflection of market periods going further back.
 
-## Next Steps / Potential v2 Changes
