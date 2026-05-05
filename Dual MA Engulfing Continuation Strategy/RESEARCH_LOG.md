@@ -47,7 +47,7 @@ This indicates a positive 5.33% from the Buy & Hold return
 
 # EVALUATION
 ## What Worked
-Positive 5.33% returns above the buy and hold return. Adequate sharpe ratio, decent profit factor, healthy win rate.
+Positive 5.33% returns above the buy and hold return, Adequate sharpe ratio, decent profit factor, healthy win rate.
 ## Weaknesses
 Took 500+ trades in a span of 3 months, which is very high. There could be a way to sieve out bad trades, and take lower trades. To increase win rate.
 
