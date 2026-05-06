@@ -61,3 +61,4 @@ Used a specific ATR value of 1.7 which could be a bias towards the data set test
 ## Backtest Results - Image
 <img width="3360" height="814" alt="image" src="https://github.com/user-attachments/assets/8478b193-d979-4045-85e0-973d35e99163" />
 
+_Green line indicates strategy return. Blue line indicated Buy & Hold return_
