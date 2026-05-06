@@ -40,6 +40,7 @@ _results image at the end - after evaluation_
 
 This indicates a positive 0.47% from the Buy & Hold return
 
+# EVALUATION
 ## What Worked
 Positive returns above the buy and hold return, 46% win rate with a 1:2RR, good profit factor.
 ## Weaknesses
