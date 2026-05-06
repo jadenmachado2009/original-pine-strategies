@@ -54,4 +54,4 @@ The reason of positive trading returns could be due to a sample size chosen that
 ## Backtest Results - Image
 <img width="3360" height="814" alt="image" src="https://github.com/user-attachments/assets/666dea16-5484-4a9f-b6bb-6c7d2de656ee" />
 
-
+_Green line indicates strategy return. Blue line indicated Buy & Hold return_
