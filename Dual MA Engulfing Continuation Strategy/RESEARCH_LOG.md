@@ -42,13 +42,13 @@ _results image at the end - after evaluation_
 ## Buy & Hold Comparison
 | Strategy Return | Buy & Hold Return |
 |-----------------|-------------------|
-|      18.35%    |      5.42%        |
+|      18.36%    |      5.42%        |
 
-Outperformed buy and hold by 12.93% over the backtest period.
+Outperformed buy and hold by 12.94% over the backtest period.
 
 # EVALUATION
 ## What Worked
-Positive 12.93% returns above the buy and hold return, Adequate sharpe ratio, decent profit factor, healthy win rate(good for a general 1:1 RR).
+Positive 12.94% returns above the buy and hold return, Adequate sharpe ratio, decent profit factor, healthy win rate(good for a general 1:1 RR).
 ## Weaknesses
 Took 500+ trades in a span of 3 months, which is very high. There could be a way to sieve out bad trades, and take lower trades. To increase win rate.
 ## Backtest Limitations
