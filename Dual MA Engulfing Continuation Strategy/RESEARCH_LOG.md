@@ -38,6 +38,7 @@ _ADDITIONAL NOTE: use 50% margin while backtesting_
 |----------|---------------|--------------|--------------|------------|-----------------|
 |   56.60%   |     1.264     |  1.1       |   4.56%     |    523     | Feb 2 – May 6 2026 |
 
+_results image at the end - after evaluation_
 ## Buy & Hold Comparison
 | Strategy Return | Buy & Hold Return |
 |-----------------|-------------------|
