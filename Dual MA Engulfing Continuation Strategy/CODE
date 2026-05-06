@@ -2,13 +2,22 @@
 // © jadenmachado1234
 
 //@version=6
-strategy("Bullish Engulfing, trend continuation", overlay=true)
+strategy( "Dual MA Engulfing Continuation Strategy",
+     overlay           = true,
+     initial_capital   = 1000000,
+     default_qty_type  = strategy.fixed,
+     default_qty_value = 2,
+     commission_type   = strategy.commission.cash_per_contract,
+     commission_value  = 2.5,
+     slippage          = 2
+     )
 
 // INPUTS
 inEma   = input.int(200, 'EMA Length', step = 5)
 inSma   = input.int(200, 'SMA Length', step = 5)
 atrLen  = input.int(14, 'ATR Length', step = 1)
 atrMult = input.float(1.7, 'ATR Multiplier', step = 0.1 )
+
 // INDICATORS
 ema     = ta.ema(close, inEma)
 sma     = ta.sma(close, inSma)
@@ -28,14 +37,15 @@ if shortCondition and strategy.position_size >= 0
     strategy.entry('SHORT', strategy.short)
 
 // EXIT
-// long stop
 longSL = strategy.position_avg_price - (atr * atrMult)
-longTP = strategy.position_avg_price + (atr * atrMult )
-strategy.exit('long exit', 'LONG', limit = longTP, stop = longSL)
-// short stop
+longTP = strategy.position_avg_price + (atr * atrMult)
+
 shortSL = strategy.position_avg_price + (atr * atrMult)
 shortTP = strategy.position_avg_price - (atr * atrMult)
+
+strategy.exit('long exit', 'LONG', limit = longTP, stop = longSL)
 strategy.exit('short exit', 'SHORT', limit = shortTP, stop = shortSL)
 
+// PLOTS
 plot(ema, color = color.navy)
 plot(sma, color = color.gray)
