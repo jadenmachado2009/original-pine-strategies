@@ -1,0 +1,53 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © jadenmachado1234
+
+//@version=6
+strategy("Volume-Spike Strategy",
+     overlay           = true,
+     initial_capital   = 1000000,
+     default_qty_type  = strategy.fixed,
+     default_qty_value = 3,
+     commission_type   = strategy.commission.cash_per_contract,
+     commission_value  = 2.5,
+     slippage          = 2
+     )
+
+// INPUTS ----------------------------------------------------------
+volPer  = input.int(40, 'Volume Period', step = 1) // volume period, how far the back volume mean is taken
+
+atrMult = input.float(1.6, 'ATR Mulitplier', step = 0.1)
+atrLen    = input.int(14, "ATR Length")
+
+
+// INDICATORS ------------------------------------------------------
+vol       = ta.sma(volume, volPer)
+spike     = volume >= (vol * 2) // spike defined as 2x the volume of previous 40 bars
+
+atr = ta.atr(atrLen)
+
+bullSpike = spike and close > open // volume spike on a bullish bar
+bearSpike = spike and close < open // volume spike on a bearish bar
+
+
+// CONDITIONS ------------------------------------------------------
+longCondition   = bearSpike[1]
+shortCondition  = bullSpike[1]
+
+
+// ENTRY -----------------------------------------------------------
+if longCondition 
+    strategy.entry('LONG', strategy.long)
+
+if shortCondition 
+    strategy.entry('SHORT', strategy.short)
+
+
+// EXIT ------------------------------------------------------------
+longSL = strategy.position_avg_price - (atr * atrMult)
+longTP = strategy.position_avg_price + (atr * atrMult)
+
+shortSL = strategy.position_avg_price + (atr * atrMult)
+shortTP = strategy.position_avg_price - (atr * atrMult)
+
+strategy.exit('long exit', 'LONG', limit = longTP, stop = longSL)
+strategy.exit('short exit', 'SHORT', limit = shortTP, stop = shortSL)
