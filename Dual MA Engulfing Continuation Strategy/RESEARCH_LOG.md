@@ -27,6 +27,7 @@ Price trading above both EMA 200 and SMA 200 indicates an established trend. A b
 - **Commission:** $2.50 per contract
 - **Slippage:** 2 ticks
 _ADDITIONAL NOTE: use 50% margin while backtesting_
+
 ## Parameter Rationale
 - **ATR Multiplier (1.7):** selected this specific value after testing multiple multiplier values which yield highest profits. This is aknowledged as an overfitting concern.
 - **EMA/SMA Length (200):** helped identify the general trend over 200 candles, both the average trend as well as the recent trend over the 200 candle bars.
