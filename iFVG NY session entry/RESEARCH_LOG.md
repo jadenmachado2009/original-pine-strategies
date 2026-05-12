@@ -21,6 +21,13 @@ When a FVG is disrespected (iFVG) it signals a possible continuation in the corr
 - **Long Stop Loss:** bearFVG bottom boundary
 - **Short Stop Loss:** bullFVG top boundary
 - **Take Profit:** R:R ratio applied from entry (default 1:2, adjustable)
+- 
+## Simulation Parameters
+- **Initial Capital:** $1,000,000
+- **Position Size:** 2 contracts (fixed)
+- **Commission:** $2.50 per contract
+- **Slippage:** 2 ticks
+_ADDITIONAL NOTE: use 50% margin while backtesting_
 
 ## Parameter Rationale
 - **Session (09:30–11:00):** High volatility session. Therefore, price movements will be bigger.
