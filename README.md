@@ -13,7 +13,7 @@ This is **stage 1** — research and backtesting only. The full pipeline:
 
 Stages 2–4 do not exist yet. This folder is where the work starts.
 
----
+---------------
 
 ## Purpose
 
@@ -34,7 +34,7 @@ strategy("Strategy Name",
 
 The simulation parameters are set to approximate realistic trading conditions, not to inflate backtest results.
 
----
+---------------
 
 ## Scope & Limitations
 
@@ -55,14 +55,14 @@ The simulation parameters are set to approximate realistic trading conditions, n
 - Backtest periods are typically 2–4 months. Results reflect that specific window, not a universal edge.
 - Strategies use publicly known components (EMAs, RSI, ATR, engulfing patterns, etc.) in original combinations. Originality is in the assembly, filtering, and parameter selection — not in inventing new indicators.
 
----
+-----------
 
 ## Strategy Documentation Standard
 
-Every strategy must have a `researchlog.md` covering these sections:
+Every strategy must have a `RESEARCH_LOG.md` covering these sections:
 
 ### Strategy Overview
-- Type (original / hybrid)
+- Type (original)
 - Timeframe
 - Asset: NQ1!
 - Backtest period
@@ -106,7 +106,7 @@ Include a buy & hold comparison where applicable.
 ### Backtest Results Image
 Screenshot from TradingView Strategy Tester with equity curve.
 
----
+-------
 
 ## Methodology
 
@@ -140,7 +140,7 @@ Strategies are compared across:
 
 Running comparisons are maintained in `_logs/development-log.md`.
 
----
+---------
 
 ## Disclaimer
 
@@ -148,7 +148,7 @@ This is a personal research project, not investment advice and not a signal serv
 
 This work demonstrates quantitative reasoning, systematic experimentation, and applied programming in financial markets — skills developed through independent research.
 
----
+---------------
 
 ## Roadmap
 
