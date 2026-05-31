@@ -1,0 +1,60 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © jadenmachado1234
+
+//@version=6
+strategy( "Momentum Fade",
+     overlay           = true,
+     initial_capital   = 1000000,
+     default_qty_type  = strategy.fixed,
+     default_qty_value = 3,
+     commission_type   = strategy.commission.cash_per_contract,
+     commission_value  = 2.5,
+     slippage          = 2
+     )
+
+
+// ----- INPUTS -------------------------
+
+atrLen       = input.int(14, 'ATR Length', step = 1, group = 'ATR')
+atrMult      = input.float(2.5, 'ATR Multiplier', step = 0.1, group = 'ATR')
+
+
+// ----- INDICATORS --------------------------
+atr = ta.atr(atrLen)
+
+
+// ----- CONDITIONS -------------------------
+body1 = open[3] - close[3]
+body2 = open[2] - close[2]
+body3 = open[1] - close[1]
+
+bearish1 = close[3] < open[3]
+bearish2 = close[2] < open[2]
+bearish3 = close[1] < open[1]
+
+longCondition = bearish1 and bearish2 and bearish3 and body1 >= body2 and body2 >= body3
+
+bullish1 = close[3] > open[3]
+bullish2 = close[2] > open[2]
+bullish3 = close[1] > open[1]
+
+shortCondition = bullish1 and bullish2 and bullish3 and body1 >= body2 and body2 >= body3
+
+
+// ----- ENTRY ---------------
+if longCondition 
+    strategy.entry('LONG', strategy.long)
+
+if shortCondition 
+    strategy.entry('SHORT', strategy.short)
+
+
+// ----- EXIT ---------------
+longSL = strategy.position_avg_price - (atr * atrMult)
+longTP = strategy.position_avg_price + (atr * atrMult)
+
+shortSL = strategy.position_avg_price + (atr * atrMult)
+shortTP = strategy.position_avg_price - (atr * atrMult)
+
+strategy.exit('long exit', 'LONG', limit = longTP, stop = longSL)
+strategy.exit('short exit', 'SHORT', limit = shortTP, stop = shortSL)
